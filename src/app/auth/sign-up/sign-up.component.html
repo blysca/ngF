@@ -1,0 +1,111 @@
+<div class="peers ai-s fxw-nw h-100vh">
+  <div class="peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv _bg">
+    <div class="pos-a centerXY">
+      <div class="bgc-white bdrs-50p pos-r">
+        <mat-icon class="shadow">fitness_center</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r shadow">
+    <h4 class="fw-300 c-grey-900 mB-40">Register</h4>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          formControlName="username"
+          placeholder="Username">
+        <mat-error
+          *ngIf="sUpForm.username.errors">
+          <span
+            *ngIf="sUpForm.username.errors.required"
+          >Username is <strong>required</strong></span>
+          <span
+            *ngIf="sUpForm.username.errors.minlength"
+          >Username must be at least <strong>{{sUpForm.username.errors.minlength.requiredLength}}</strong>
+            characters long</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="Email Address">
+        <mat-error
+          *ngIf="sUpForm.email.errors">
+          <span
+            *ngIf="sUpForm.email.errors.required"
+          >Username is <strong>required</strong></span>
+          <span
+            *ngIf="sUpForm.email.errors.email"
+          >Enter a <strong>valid email</strong></span>
+          <span
+            *ngIf="sUpForm.email.errors.emailTaken"
+          >Oh noes, this email is <strong>already taken!</strong></span>
+        </mat-error>
+      </mat-form-field>
+
+      <ng-container formGroupName="password">
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            formControlName="main"
+            placeholder="Password">
+          <mat-error
+            *ngIf="sUpFormPassword.controls.main.errors">
+          <span
+            *ngIf="sUpFormPassword.controls.main.errors.required"
+          >Password is <strong>required</strong></span>
+            <span
+              *ngIf="sUpFormPassword.controls.main.errors.minlength"
+            >Password must be at least <strong>{{sUpFormPassword.controls.main.errors.minlength.requiredLength}}</strong>
+            characters long</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+            type="password"
+            matInput
+            formControlName="confirm"
+            placeholder="Confirm Password">
+          <mat-error
+            *ngIf="sUpFormPassword.controls.confirm.errors">
+          <span
+            *ngIf="sUpFormPassword.controls.confirm.errors.required"
+          >Confirm Password is <strong>required</strong></span>
+            <span
+            *ngIf="sUpFormPassword.controls.confirm.errors.MatchPassword"
+          >Confirm Password <strong>not match</strong></span>
+          </mat-error>
+
+        </mat-form-field>
+      </ng-container>
+
+      <div class="mt-3">
+        <button
+          color="primary"
+          type="submit"
+          mat-raised-button >Register</button>
+      </div>
+    </form>
+
+    <div class="mt-3 mb-3 p-10 p-3 border shadow">
+      <p>Form Value:
+          <code>{{ signUpForm.value | json}}</code>
+      </p>
+      <p class="m-0">Form Status: {{ signUpForm.status }}</p>
+    </div>
+
+    <button
+      class="mt-5"
+      color="primary"
+      mat-button
+      routerLink="/sign-in"
+    >Sign in instead</button>
+
+  </div>
+</div>

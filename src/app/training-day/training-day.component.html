@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <div class="row">
+    <form
+      [formGroup]="trainingDayForm"
+      (ngSubmit)="onSubmit()"
+      class="col">
+      <h2>День тренироки</h2>
+      <ng-container formArrayName="exercises">
+
+        <mat-card
+          class="mb-3 ml-sm-3"
+          *ngFor="let exercise of exercises.controls; let j = index;"
+          [formGroupName]="j">
+        <mat-card-header>
+          <mat-card-title>Упражнение № {{j+1}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="row">
+            <div class="col-8">
+              <mat-form-field hintLabel="Max 10 characters">
+                <input
+                  matInput
+                  placeholder="Exercise"
+                  formControlName="name">
+                <mat-error *ngIf="exercise.controls.name.touched">
+                  <span *ngIf="exercise.hasError('required', 'name')">Required</span>
+                </mat-error>
+                <mat-hint align="end">oeatsuhoas/10</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="col-4">
+              <mat-form-field>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="PM"
+                  formControlName="pm">
+                <mat-hint>Personal Maximum</mat-hint>
+                <mat-error
+                  *ngIf="false">Please enter a PM</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row"
+               formArrayName="activity">
+            <ng-container
+              *ngFor="let a of exercises.controls[j].controls.activity.controls; let i = index;"
+              [formGroupName]="i">
+              <div class="col-4">
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="Weight"
+                    formControlName="weight">
+                  <mat-hint>50%</mat-hint>
+                  <mat-error
+                    *ngIf="false">Please enter a PM</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-4">
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="Sets"
+                    formControlName="sets">
+                  <mat-hint>КПШ 8</mat-hint>
+                  <mat-error
+                    *ngIf="false">Please enter a PM</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-4">
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="Reps"
+                    formControlName="reps">
+                  <mat-hint>Errors appear instantly!</mat-hint>
+                  <mat-error
+                    *ngIf="false">Please enter a PM</mat-error>
+                </mat-form-field>
+              </div>
+            </ng-container>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            type="button"
+            color="primary"
+            [disabled]="trainingDayForm.invalid && trainingDayForm.touched"
+            (click)="addActivity(j)"
+            mat-button>Еще блинов</button>
+        </mat-card-actions>
+      </mat-card>
+      </ng-container>
+      <button
+        class="mt-5"
+        type="button"
+        color="accent"
+        (click)="addExercise()"
+        mat-raised-button
+      >Следующее упражнение</button>
+      <button
+        class="mt-5 ml-2"
+        type="submit"
+        color="primary"
+        mat-raised-button
+      >Submit</button>
+    </form>
+  </div>
+</div>

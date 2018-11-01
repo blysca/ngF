@@ -1,0 +1,139 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "daddy",
+      "email": "b9@daddy.co",
+      "password": "ot7t3q"
+    },
+    {
+      "id": 2,
+      "name": "Paul",
+      "email": "paul@want.com",
+      "password": "r8dhgy"
+    },
+    {
+      "id": 3,
+      "name": "Ringo",
+      "email": "ringo@tolive.com",
+      "password": "kwu8ve"
+    },
+    {
+      "id": 4,
+      "name": "John",
+      "email": "john@unleashed.com",
+      "password": "ar2p1n"
+    },
+    {
+      "id": 5,
+      "name": "George",
+      "email": "george@skillet.com",
+      "password": "s6ch8s"
+    },
+    {
+      "name": "Gina Sims",
+      "email": "gina.sims59@example.com",
+      "password": "soccer",
+      "id": 6
+    },
+    {
+      "name": "Gregory Palmer",
+      "email": "gregory@palmer89.com",
+      "password": "qing",
+      "id": 7
+    },
+    {
+      "name": "raul jacobs",
+      "email": "raul.jacobs19@example.com",
+      "password": "oakland",
+      "id": 8
+    },
+    {
+      "name": "Erin Hill",
+      "email": "erin.hill58@example.com",
+      "password": "condom",
+      "id": 9
+    }
+  ],
+  "account_validation_messages": {
+    "username": [
+      {
+        "type": "required",
+        "message": "Username is required"
+      },
+      {
+        "type": "minlength",
+        "message": "Username must be at least 5 characters long"
+      },
+      {
+        "type": "maxlength",
+        "message": "Username cannot be more than 25 characters long"
+      },
+      {
+        "type": "pattern",
+        "message": "Your username must contain only numbers and letters"
+      },
+      {
+        "type": "validUsername",
+        "message": "Your username has already been taken"
+      }
+    ],
+    "email": [
+      {
+        "type": "required",
+        "message": "Email is required"
+      },
+      {
+        "type": "pattern",
+        "message": "Enter a valid email"
+      }
+    ],
+    "confirm_password": [
+      {
+        "type": "required",
+        "message": "Confirm password is required"
+      },
+      {
+        "type": "areEqual",
+        "message": "Password mismatch"
+      }
+    ],
+    "password": [
+      {
+        "type": "required",
+        "message": "Password is required"
+      },
+      {
+        "type": "minlength",
+        "message": "Password must be at least 5 characters long"
+      },
+      {
+        "type": "pattern",
+        "message": "Your password must contain at least one uppercase, one lowercase, and one number"
+      }
+    ],
+    "terms": [
+      {
+        "type": "pattern",
+        "message": "You must accept terms and conditions"
+      }
+    ]
+  }
+}

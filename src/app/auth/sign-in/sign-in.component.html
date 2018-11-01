@@ -1,0 +1,73 @@
+<div class="peers ai-s fxw-nw h-100vh">
+  <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv _bg">
+    <div class="pos-a centerXY">
+      <div class="bgc-white bdrs-50p pos-r">
+        <mat-icon class="shadow">fitness_center</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable form-wrp shadow pos-r">
+    <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input
+          type="email"
+          formControlName="email"
+          matInput
+          placeholder="Username">
+        <mat-error
+          *ngIf="sInForm.email.errors">
+          <span
+            *ngIf="sInForm.email.errors.required"
+          >Email is <strong>required</strong></span>
+          <span
+            *ngIf="sInForm.email.errors.email"
+          >Enter a <strong>valid email</strong></span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          type="password"
+          formControlName="password"
+          matInput
+          placeholder="Password">
+        <mat-error
+          *ngIf="sInForm.password.errors">
+          <span
+            *ngIf="sInForm.password.errors.required"
+          >Password is <strong>required</strong></span>
+        </mat-error>
+      </mat-form-field>
+
+      <div class="d-flex justify-content-between mt-3">
+        <mat-checkbox
+          formControlName="rememberEmail"
+        >Remember Me</mat-checkbox>
+        <button
+          type="submit"
+          color="primary"
+          mat-raised-button >Login</button>
+      </div>
+    </form>
+    <p class="d-none">
+      <a
+        mat-button
+      >Forgot email?</a>
+    </p>
+
+    <div class="mt-3 mb-3 p-3 p-10 border shadow">
+      <p>Form Value:
+        <code class="d-block">{{ signInForm.value | json}}</code>
+      </p>
+      <p class="m-0">Form Status: {{ signInForm.status }}</p>
+    </div>
+
+    <button
+      class="mt-5"
+      color="primary"
+      mat-button
+      routerLink="/sign-up"
+    >Create account</button>
+  </div>
+</div>
