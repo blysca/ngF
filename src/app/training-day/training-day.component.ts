@@ -70,7 +70,7 @@ export class TrainingDayComponent implements OnInit {
     // console.log('*activity1*', activity);
     console.log('*activity2*', <FormArray>this.trainingDayForm.get(`exercises`));
     console.log('*activity2*', this.trainingDayForm.get(`exercises`).controls[j].controls.activity);
-    // activity.controls.push(this.buildActivity());
+    activity.controls.push(this.buildActivity());
     // this.activity.push(this.buildActivity());
   }
 
